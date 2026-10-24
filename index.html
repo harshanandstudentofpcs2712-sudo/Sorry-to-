@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sorry Didi 🥺💗</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pink:#ff76ad;--purple:#b99aff}
+body{
+  background:radial-gradient(ellipse at top,#422044,#170f27 70%);
+  color:#fff;font-family:system-ui,Arial,sans-serif;
+  min-height:100vh;overflow:hidden
+}
+#sky{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.2;transform:scale(.5)}}
+.heart{position:absolute;bottom:-40px;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+header{position:fixed;z-index:5;top:0;left:0;right:0;padding:18px;display:flex;justify-content:space-between;background:linear-gradient(#170f27dd,transparent)}
+.logo{color:#ffafd0;font-weight:800;letter-spacing:2px}
+#count{font-size:13px;color:#e7cce7}
+#bar{height:3px;position:fixed;top:0;left:0;background:var(--pink);z-index:10;transition:.4s}
+main{height:100dvh}
+.page{
+ position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+ padding:78px 20px 80px;overflow-y:auto;
+ opacity:0;visibility:hidden;transform:translateX(35px) scale(.98);
+ transition:opacity .4s,transform .4s,visibility .4s
+}
+.page.active{opacity:1;visibility:visible;transform:translateX(0) scale(1)}
+.content{max-width:550px;width:100%;text-align:center;margin:auto}
+.tag{font-size:11px;letter-spacing:4px;color:#ffacd1;margin-bottom:18px;font-weight:bold}
+.art{font-size:76px;margin-bottom:18px;filter:drop-shadow(0 0 18px #ff76ad66);animation:bob 3s infinite ease-in-out}
+@keyframes bob{50%{transform:translateY(-10px)}}
+h1{font-size:clamp(34px,8vw,58px);line-height:1.12;letter-spacing:-1.5px;margin-bottom:20px}
+h1 span{color:var(--pink)}
+p{font-size:15px;line-height:1.9;color:#e8dbea;margin:0 auto 17px;max-width:480px}
+.card{background:#ffffff0b;border:1px solid #ffffff25;border-radius:24px;padding:24px;backdrop-filter:blur(12px);box-shadow:0 20px 65px #0003}
+.btn{border:1px solid #ffffff20;border-radius:30px;padding:13px 21px;background:linear-gradient(110deg,#ff659f,#b879ff);color:white;font-size:14px;font-weight:750;cursor:pointer;margin:6px;transition:.2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.alt{background:#ffffff10;border-color:#ffffff40}
+.btn:active{transform:scale(.97)}
+input,textarea,select{width:100%;padding:13px;border:1px solid #ffffff30;border-radius:12px;background:#1e142d;color:white;font:inherit;outline:none}
+textarea{min-height:115px;resize:vertical}
+label{display:block;text-align:left;font-size:13px;color:#ffb9d6;margin:13px 0 7px}
+#status{font-size:13px;color:#ffc6df;margin-top:12px}
+#gift{font-size:90px;cursor:pointer;transition:.4s}
+#gift:hover{transform:scale(1.1) rotate(-5deg)}
+.small{font-size:12px;color:#bca9cb}
+footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;z-index:5}
+.hidden{display:none!important}
+@media(max-height:700px){.page{padding-top:65px;padding-bottom:65px}.art{font-size:55px;margin-bottom:8px}h1{font-size:36px}.card{padding:17px}}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="bar"></div>
+<header><div class="logo">FOR YOU, DIDI ♡</div><div id="count">01 / 07</div></header>
+
+<main>
+<!-- PAGE 1 -->
+<section class="page active" id="p1">
+<div class="content">
+<div class="tag">EK CHHOTI SI BAAT 💌</div>
+<div class="art">🥺💗</div>
+<h1>Maine galti kar di hai na, <span>Didi?</span></h1>
+<p>Ek baar dil se jawab dena... 🥹</p>
+<button class="btn" onclick="playSong()">🎵 Play Song</button>
+<audio id="song" loop preload="none"></audio>
+<p class="small" id="musicStatus">Song play karne ke liye MP3 file neeche bataye gaye tareeke se add karo.</p>
+<div style="margin-top:15px">
+<button class="btn" onclick="choose('yes')">Haan ❤️</button>
+<button class="btn alt" onclick="choose('no')">Nahi 🥺</button>
+</div>
+</div>
+</section>
+
+<!-- PAGE 2A -->
+<section class="page" id="p2a">
+<div class="content">
+<div class="tag">PAGE 02 · DIL SE SORRY</div>
+<div class="art">🥹❤️</div>
+<h1>Sorry, <span>Didi!</span></h1>
+<div class="card">
+<p>Didi, mujhe pata hai mujhse galti hui hai. Main nahi chahta tha ki meri kisi baat se aapka dil dukhe.</p>
+<p>Aap mere liye bahut special ho. Aapki narazgi bhi mere liye matter karti hai aur aapki khushi bhi.</p>
+<p>Main bas itna chahta hoon ki aap meri baat ek baar samjho. Main dil se sorry hoon, Didi. 🫂💗</p>
+</div>
+<button class="btn" onclick="go(3)">Aage dekho →</button>
+</div>
+</section>
+
+<!-- PAGE 2B -->
+<section class="page" id="p2b">
+<div class="content">
+<div class="tag">PAGE 02 · MERI BAAT SUNO</div>
+<div class="art">🥺💌</div>
+<h1>Haan, mujhe pata hai...</h1>
+<div class="card">
+<p>Haan Didi, main jaanta hoon aap bahut gussa hongi, kyunki maine aapse GF banwa dene ko kaha tha. 😅🥺</p>
+<p>Shayad meri baat aapko ajeeb lagi ho, ya aapko laga ho ki main aapse kuch zyada hi keh raha hoon. Main samajh sakta hoon ki aapko bura laga hoga.</p>
+<p>Didi, mera maksad aapko pareshan karna nahi tha. Kabhi-kabhi main bina soche kuch bol deta hoon. Mujhe apni baat kehne ka tareeka behtar rakhna chahiye tha.</p>
+<p>Aap meri Didi ho, aur main aapki respect karta hoon. Meri baat se aapko bura laga ho toh dil se sorry. Please meri galti ko samajhne ki koshish karna. 🫂❤️</p>
+</div>
+<button class="btn" onclick="go(3)">Aage dekho →</button>
+</div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3">
+<div class="content">
+<div class="tag">PAGE 03 · DIDI KI VALUE</div>
+<div class="art">🫂</div>
+<h1>Aap sirf Didi nahi, <span>bahut khaas ho.</span></h1>
+<div class="card">
+<p>Didi, har kisi ki life mein koi aisa hota hai jisse woh bina dare apni baat keh sake.</p>
+<p>Mere liye aapka rishta apni jagah bahut special hai. Aapki daant mein bhi care ho sakti hai, aapki baaton mein bhi seekh hoti hai aur aapki khushi dekhkar mujhe bhi achha lagta hai.</p>
+<p>Galti meri ho sakti hai, lekin aapke liye respect kam nahi hogi. Aap hamesha khush raho, bas yahi chahta hoon. 💗</p>
+</div>
+<button class="btn" onclick="go(4)">Ek shayari suno ✨</button>
+</div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="p4">
+<div class="content">
+<div class="tag">PAGE 04 · KUCH DIL SE</div>
+<div class="art">🌷</div>
+<h1>Didi ke naam <span>ek shayari</span></h1>
+<div class="card">
+<p>
+Rishta apna hamesha yunhi khaas rahe, 💗<br>
+Chehre par aapke khushiyon ka ehsaas rahe. 🌸<br>
+Galti hui mujhse toh maaf kar dena, 🥺<br>
+Dil mein mere liye thodi si jagah rahe. 🫂<br><br>
+Aap rootho toh dil udaas ho jaata hai, ❤️‍🩹<br>
+Aapka hansna har gham bhula jaata hai. ✨<br>
+Didi, aap bas khush raha karo, 💖<br>
+Aapka khush rehna dil ko sukoon de jaata hai.
+</p>
+</div>
+<button class="btn" onclick="go(5)">Surprise dekho 🎁</button>
+</div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="p5">
+<div class="content">
+<div class="tag">PAGE 05 · A LITTLE SURPRISE</div>
+<h1>Didi, aapke liye <span>ek gift!</span></h1>
+<p>Gift kholne ke liye neeche tap karo. 🎀</p>
+<div id="gift" onclick="openGift()">🎁</div>
+<div class="card hidden" id="giftMessage">
+<h1 style="font-size:32px">Surprise! 💖</h1>
+<p>Aapke liye duniya ka sabse mehenga gift nahi laaya... bas dil se ek chhoti si baat laaya hoon:</p>
+<p><b style="color:#ff9fc7">Aap mere liye important ho, Didi. Thank you meri life ka hissa hone ke liye. 🫂🌷</b></p>
+</div>
+<button class="btn" onclick="go(6)">Next surprise →</button>
+</div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="p6">
+<div class="content">
+<div class="tag">PAGE 06 · EK CHHOTA SA PROMISE</div>
+<div class="art">🤞💗</div>
+<h1>Galti se seekhunga, <span>rishta sambhalunga.</span></h1>
+<div class="card">
+<p>Didi, main promise karta hoon ki aage se apni baat soch-samajh kar kehne ki koshish karunga.</p>
+<p>Aapki feelings aur boundaries ki respect karunga. Aapko manane ke liye ye website banayi hai, par aapko jawab dene ya turant maaf karne ke liye pressure nahi dunga.</p>
+<p>Bas jab aapka mann kare, mujhse baat kar lena. Aapki baat sunna chahta hoon. 💌</p>
+</div>
+<button class="btn" onclick="go(7)">Ab aapki baari, Didi 💗</button>
+</div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page" id="p7">
+<div class="content">
+<div class="tag">PAGE 07 · YOUR REPLY</div>
+<div class="art">💌</div>
+<h1>Didi, kuch <span>kehogi?</span></h1>
+<p>Aap jo feel karti ho, yahan likh do. Main aapki baat padhna chahta hoon. ❤️</p>
+<div class="card">
+<form id="replyForm">
+<label for="name">Aapka naam</label>
+<input id="name" name="name" placeholder="Apna naam likho..." required>
+<label for="reply">Aapka reply</label>
+<textarea id="reply" name="reply" placeholder="Didi, yahan reply likho..." required></textarea>
+<button class="btn" type="submit" style="width:100%;margin:18px 0 0">Send Reply 💌</button>
+<div id="status" role="status"></div>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer><button class="btn alt" id="back" onclick="go(current-1)">← Back</button><span class="small">Made with love for Didi 💗</span></footer>
+
+<script>
+let current=1;
+let branch="yes";
+
+function go(n){
+ if(n<1||n>7)return;
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ current=n;
+ let target=n===2?(branch==="yes"?"p2a":"p2b"):"p"+n;
+ document.getElementById(target).classList.add("active");
+ document.getElementById("count").textContent=String(n).padStart(2,"0")+" / 07";
+ document.getElementById("bar").style.width=(n/7*100)+"%";
+ document.getElementById("back").style.display=n===1?"none":"inline-block";
+}
+function choose(answer){
+ branch=answer;
+ go(2);
+}
+function openGift(){
+ document.getElementById("gift").classList.add("hidden");
+ document.getElementById("giftMessage").classList.remove("hidden");
+ burst();
+}
+function burst(){
+ for(let i=0;i<35;i++){
+  let h=document.createElement("div");
+  h.textContent=["💗","✨","🌸","💖"][Math.floor(Math.random()*4)];
+  h.style.cssText="position:fixed;z-index:20;left:"+Math.random()*100+
+  "vw;top:"+Math.random()*90+"vh;font-size:25px;pointer-events:none;transition:1.5s";
+  document.body.appendChild(h);
+  requestAnimationFrame(()=>{
+   h.style.transform="translateY(-150px) rotate(180deg)";
+   h.style.opacity="0";
+  });
+  setTimeout(()=>h.remove(),1600);
+ }
+}
+for(let i=0;i<75;i++){
+ let s=document.createElement("i");
+ s.className="star";
+ s.style.left=Math.random()*100+"%";
+ s.style.top=Math.random()*100+"%";
+ s.style.width=s.style.height=(1+Math.random()*3)+"px";
+ s.style.animationDelay=Math.random()*3+"s";
+ document.getElementById("sky").appendChild(s);
+}
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.textContent=["💗","♡","🌸","✨"][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+"%";
+ h.style.fontSize=(15+Math.random()*20)+"px";
+ h.style.animationDuration=(5+Math.random()*6)+"s";
+ document.getElementById("sky").appendChild(h);
+ setTimeout(()=>h.remove(),12000);
+},450);
+
+// Add your Google Forms connection details here.
+const FORM_ACTION = "";
+const ENTRY_NAME = "";
+const ENTRY_REPLY = "";
+
+document.getElementById("replyForm").addEventListener("submit",async function(e){
+ e.preventDefault();
+ const status=document.getElementById("status");
+ if(!FORM_ACTION||!ENTRY_NAME||!ENTRY_REPLY){
+  status.textContent="Reply form ko connect karna baaki hai.";
+  return;
+ }
+ const data=new FormData();
+ data.append(ENTRY_NAME,document.getElementById("name").value);
+ data.append(ENTRY_REPLY,document.getElementById("reply").value);
+ status.textContent="Sending...";
+ try{
+  await fetch(FORM_ACTION,{method:"POST",mode:"no-cors",body:data});
+  status.textContent="Reply sent 💗 Thank you, Didi!";
+  this.reset();
+ }catch(err){
+  status.textContent="Please try again.";
+ }
+});
+
+// Add your own MP3 file as song.mp3 in the same repository.
+async function playSong(){
+ const song=document.getElementById("song");
+ if(!song.src){
+  song.src="song.mp3";
+  song.load();
+ }
+ try{
+  await song.play();
+  document.getElementById("musicStatus").textContent="Playing your song 🎵";
+ }catch(e){
+  document.getElementById("musicStatus").textContent="song.mp3 file ko repository mein add karo.";
+ }
+}
+</script>
+</body>
+</html>
